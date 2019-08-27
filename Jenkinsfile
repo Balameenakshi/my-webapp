@@ -23,6 +23,11 @@ stages {
 	stage("Results")
 	{
 	steps { archiveArtifacts 'target/*.war' 
+	}
+	}
+	stage("Deploy")
+	{
+	steps {
 	deploy adapters: [tomcat8(credentialsId: 'd7b6d45b-dd3b-4cb4-9155-923e305f5308', path: '', url: 'http://localhost:8087')], contextPath: null, war: 'Webapp.war'
 	}
 	}
