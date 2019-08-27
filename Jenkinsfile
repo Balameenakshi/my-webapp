@@ -4,7 +4,7 @@ agent { label 'master' }
 
 	tools 
 	{ 
-	maven "Maven3"
+	maven "M2_HOME"
 	jdk "jdk 1.8"
 	}
 
@@ -17,7 +17,7 @@ stages {
 	stage("Build using Maven")
 	{
 	steps { 
-	bat(/"%Maven3%\bin\mvn" -Dmaven.test.failure.ignore clean package/) }
+	bat(/"%M2_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/) }
 	}
 
 	stage("Results")
