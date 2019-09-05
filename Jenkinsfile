@@ -9,10 +9,10 @@ agent { label 'linux-agent-1' }
 	}
 
 stages {
-	//stage("cloning from git")
-	//{
-	//steps { git credentialsId: 'Maven-Jar', url: 'https://github.com/Balameenakshi/my-webapp.git' }
-	//}
+	stage("cloning from git")
+	{
+	steps { git credentialsId: 'Maven-Jar', url: 'https://github.com/Balameenakshi/my-webapp.git' }
+	}
 
 	stage("Build using Maven")
 	{
