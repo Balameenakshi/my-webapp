@@ -1,6 +1,6 @@
 pipeline {
 
-agent { label 'master' }
+agent { label 'linux-agent-1' }
 
 	tools 
 	{ 
@@ -28,7 +28,7 @@ stages {
 	stage("Deploy")
 	{
 	steps {
-	deploy adapters: [tomcat8(credentialsId: 'd7b6d45b-dd3b-4cb4-9155-923e305f5308', path: '', url: 'http://localhost:8087')], contextPath: null, war: '**/*.war'
+	deploy adapters: [tomcat8(credentialsId: 'd7b6d45b-dd3b-4cb4-9155-923e305f5308', path: '', url: '/usr/share/tomcat8')], contextPath: null, war: '**/*.war'
 	}
 	}
 }
