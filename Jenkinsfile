@@ -9,15 +9,15 @@ agent { label 'master' }
 	}
 
 stages {
-	stage("cloning from git")
-	{
-	steps { git credentialsId: 'Maven-Jar', url: 'https://github.com/Balameenakshi/my-webapp.git' }
-	}
+	//stage("cloning from git")
+	//{
+	//steps { git credentialsId: 'Maven-Jar', url: 'https://github.com/Balameenakshi/my-webapp.git' }
+	//}
 
 	stage("Build using Maven")
 	{
 	steps { 
-	bat(/"%M2_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/) }
+	sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package' }
 	}
 
 	stage("Results")
@@ -28,7 +28,7 @@ stages {
 	stage("Deploy")
 	{
 	steps {
-	deploy adapters: [tomcat8(credentialsId: 'd7b6d45b-dd3b-4cb4-9155-923e305f5308', path: '', url: 'http://localhost:8087')], contextPath: null, war: '**/*.war'
+	deploy adapters: [tomcat8(credentialsId: 'a7b8f88e-1637-446d-9522-43d948e7ab6d', path: '', url: 'https://192.168.244.128:8080')], contextPath: null, war: '**/*.war'
 	}
 	}
 }
