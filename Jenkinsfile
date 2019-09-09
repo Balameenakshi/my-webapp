@@ -28,7 +28,7 @@ stages {
 	stage("Deploy")
 	{
 	steps {
-	deploy adapters: [tomcat8(credentialsId: 'a7b8f88e-1637-446d-9522-43d948e7ab6d', path: '', url: 'https://192.168.244.128:8080')], contextPath: null, war: '**/*.war'
+	deploy adapters: [tomcat8(credentialsId: 'd7b6d45b-dd3b-4cb4-9155-923e305f5308', path: '', url: 'https://192.168.244.128:8080')], contextPath: null, war: '**/*.war'
 	}
 	}
 }
